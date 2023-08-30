@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# project binaries
+sandbox/bin/*
+Sandbox/*.user
