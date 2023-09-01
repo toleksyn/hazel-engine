@@ -1,6 +1,5 @@
 #pragma once
-#include "core.h"
 
-namespace Hazel {
-   HAZEL_API void print();
-};
+#include "application.h"
+#include "entryPoint.h"
+#include "log.h"

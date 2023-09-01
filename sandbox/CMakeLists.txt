@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(src/hazel)
+
 add_executable(sandbox src/sandboxApp.cpp)
 
 target_link_libraries(sandbox PUBLIC hazel)

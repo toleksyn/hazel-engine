@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+.directory
 
 # Compiled Object files
 *.slo
@@ -32,5 +33,5 @@
 *.app
 
 # project binaries
-sandbox/bin/*
-Sandbox/*.user
+sandbox/bin*/*
+sandbox/*.user
