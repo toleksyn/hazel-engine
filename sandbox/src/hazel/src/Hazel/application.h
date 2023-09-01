@@ -2,11 +2,11 @@
 
 namespace Hazel {
     class Application {
-        public:
-            Application();
-            virtual ~Application();
+    public:
+        Application();
+        virtual ~Application();
 
-            void run();
+        void run();
     };
 
     Application* createApplication();

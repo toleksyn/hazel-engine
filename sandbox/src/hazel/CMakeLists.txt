@@ -12,6 +12,9 @@ add_library(hazel SHARED
   src/Hazel/application.h src/Hazel/application.cpp
   src/hazel.h
   src/Hazel/entryPoint.h
+  src/Hazel/log.h src/Hazel/log.cpp
 )
+
+add_directory(../../vendor/spdlog)
 
 target_compile_definitions(hazel PUBLIC HAZEL_LIBRARY)
