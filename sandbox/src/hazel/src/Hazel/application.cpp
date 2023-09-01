@@ -1,19 +1,21 @@
 #include "application.h"
-#include <iostream>
+#include "events/applicationEvent.h"
+#include "log.h"
 
 namespace Hazel {
-    Application::Application() {
+    Application::Application()
+    {
 
     }
 
-    Application::~Application() {
+    Application::~Application()
+    {
 
     }
 
-    void Application::run() {
-//        while(true) {
-
-//        };
-        std::cout << "App has been run\n";
+    void Application::run()
+    {
+        WindowResizeEvent e(1200, 720);
+        HZ_TRACE(e);
     }
 }

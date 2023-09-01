@@ -1,7 +1,8 @@
 #pragma once
 
 namespace Hazel {
-    class Application {
+    class Application
+    {
     public:
         Application();
         virtual ~Application();

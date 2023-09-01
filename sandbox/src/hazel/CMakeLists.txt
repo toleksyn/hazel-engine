@@ -6,14 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(hazel SHARED
-
-
   src/Hazel/core.h
   src/Hazel/application.h src/Hazel/application.cpp
   src/hazel.h
   src/Hazel/entryPoint.h
   src/Hazel/log.h src/Hazel/log.cpp
   src/Hazel/hazel.h
+  src/Hazel/events/event.h
+  src/Hazel/events/applicationEvent.h
+  src/Hazel/events/keyEvent.h
+  src/Hazel/events/mouseEvent.h
 )
 
 target_include_directories(hazel PUBLIC

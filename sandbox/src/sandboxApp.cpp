@@ -1,15 +1,20 @@
 #include <src/hazel.h>
 
-class Sandbox : public Hazel::Application {
+class Sandbox : public Hazel::Application
+{
 public:
-    Sandbox() {
+    Sandbox()
+    {
 
     }
-    ~Sandbox() {
+
+    ~Sandbox()
+    {
 
     }
 };
 
-Hazel::Application* Hazel::createApplication() {
+Hazel::Application* Hazel::createApplication()
+{
     return new Sandbox();
 }
