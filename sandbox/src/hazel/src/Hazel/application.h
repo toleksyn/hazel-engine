@@ -3,6 +3,7 @@
 #include "window.h"
 
 namespace Hazel {
+
     class HAZEL_API Application
     {
     public:
@@ -10,6 +11,7 @@ namespace Hazel {
         virtual ~Application();
 
         void run();
+
     private:
         std::unique_ptr<Window> m_Window;
         bool m_Running = true;
