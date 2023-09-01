@@ -1,7 +1,6 @@
 #pragma once
 
 #include "event.h"
-#include <sstream>
 
 namespace Hazel {
 
@@ -9,32 +8,32 @@ namespace Hazel {
     {
     public:
         MouseMovedEvent(float x, float y)
-            : m_mouseX(x), m_mouseY(y) {}
+            : m_MouseX(x), m_MouseY(y) {}
 
-        inline float getX() const { return m_mouseX; }
-        inline float getY() const { return m_mouseY; }
+        inline float getX() const { return m_MouseX; }
+        inline float getY() const { return m_MouseY; }
 
         std::string toString() const override
         {
             std::stringstream ss;
-            ss << "MouseMovedEvent: " << m_mouseX << ", " << m_mouseY;
+            ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
             return ss.str();
         }
 
         EVENT_CLASS_TYPE(MouseMoved)
         EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
     private:
-        float m_mouseX, m_mouseY;
+        float m_MouseX, m_MouseY;
     };
 
     class HAZEL_API MouseScrolledEvent : public Event
     {
     public:
         MouseScrolledEvent(float xOffset, float yOffset)
-            : m_xOffset(xOffset), m_yOffset(yOffset) {}
+            : m_XOffset(xOffset), m_YOffset(yOffset) {}
 
-        inline float getXOffset() const { return m_xOffset; }
-        inline float getYOffset() const { return m_yOffset; }
+        inline float getXOffset() const { return m_XOffset; }
+        inline float getYOffset() const { return m_YOffset; }
 
         std::string toString() const override
         {
@@ -46,13 +45,13 @@ namespace Hazel {
         EVENT_CLASS_TYPE(MouseScrolled)
         EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
     private:
-        float m_xOffset, m_yOffset;
+        float m_XOffset, m_YOffset;
     };
 
     class HAZEL_API MouseButtonEvent : public Event
     {
     public:
-        inline int GetMouseButton() const { return m_Button; }
+        inline int getMouseButton() const { return m_Button; }
 
         EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
     protected:

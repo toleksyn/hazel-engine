@@ -1,7 +1,5 @@
 #pragma once
 #include "../core.h"
-#include <functional>
-#include <string>
 
 namespace Hazel {
 
@@ -46,7 +44,7 @@ namespace Hazel {
     class EventDispatcher
     {
         template<typename T>
-        using eventFn = std::function<bool(T&)>;
+        using EventFn = std::function<bool(T&)>;
     public:
         EventDispatcher(Event& event)
             : m_Event(event)
@@ -54,7 +52,7 @@ namespace Hazel {
         }
 
         template<typename T>
-        bool dispatch(eventFn<T> func)
+        bool dispatch(EventFn<T> func)
         {
             if (m_Event.getEventType() == T::getStaticType())
             {
