@@ -26,7 +26,11 @@ add_library(hazel SHARED
     src/platform/unix/unixwindow.h src/platform/unix/unixwindow.cpp
 )
 
-target_link_libraries(hazel PUBLIC glfw "-framework OpenGL")
+if(APPLE)
+    target_link_libraries(hazel PUBLIC glfw "-framework OpenGL")
+else()
+    target_link_libraries(hazel PUBLIC glfw GL)
+endif()
 
 target_include_directories(hazel PUBLIC
     "${PROJECT_SOURCE_DIR}/src/vendor/spdlog/include"
