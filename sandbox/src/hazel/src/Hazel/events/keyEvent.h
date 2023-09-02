@@ -16,7 +16,7 @@ namespace Hazel {
         int m_keyCode;
     };
 
-    class HAZEL_API KeyPressedEvent : KeyEvent
+    class HAZEL_API KeyPressedEvent : public KeyEvent
     {
     public:
         KeyPressedEvent(int keyCode, int repeatCount)
@@ -37,7 +37,7 @@ namespace Hazel {
     };
 
 
-    class HAZEL_API KeyReleasedEvent : KeyEvent
+    class HAZEL_API KeyReleasedEvent : public KeyEvent
     {
     public:
         KeyReleasedEvent(int keyCode)
