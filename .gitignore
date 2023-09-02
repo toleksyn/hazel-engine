@@ -35,3 +35,5 @@
 # project binaries
 sandbox/bin*/*
 sandbox/*.user
+.idea/
+cmake-build-*/
