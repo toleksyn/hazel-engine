@@ -8,6 +8,10 @@ namespace Hazel {
 
     static bool s_GLFWInitialized = false;
 
+    static void glfwErrorCallback(int error, const char* description) {
+        HZ_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+    }
+
     Window* Window::create(const WindowProps& props)
     {
         return new UnixWindow(props);
@@ -53,12 +57,13 @@ namespace Hazel {
         m_Data.width = props.width;
         m_Data.height = props.height;
 
-        HZ_CORE_INFO("Creating window {0} ({1}, {2})", props.title, props.height, props.width);
+        HZ_CORE_INFO("Creating Unix window {0} ({1}, {2})", props.title, props.height, props.width);
 
         if (!s_GLFWInitialized)
         {
             int success = glfwInit();
             HZ_ASSERT(success, "Could not initialize GLFW");
+            glfwSetErrorCallback(glfwErrorCallback);
             s_GLFWInitialized = true;
         }
 
@@ -129,6 +134,20 @@ namespace Hazel {
                     break;
                 }
             }
+        });
+
+        glfwSetScrollCallback(m_Window, [](GLFWwindow *window, double xOffset, double yOffset)
+        {
+            auto data = *(WindowData*) glfwGetWindowUserPointer(window);
+            MouseScrolledEvent event((float) xOffset, (float) yOffset);
+            data.eventCallback(event);
+        });
+
+        glfwSetCursorPosCallback(m_Window, [](GLFWwindow *window, double xPos, double yPos)
+        {
+            auto data = *(WindowData*) glfwGetWindowUserPointer(window);
+            MouseMovedEvent event((double) xPos, (double) yPos);
+            data.eventCallback(event);
         });
     }
 
