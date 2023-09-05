@@ -32,7 +32,7 @@ add_library(hazel SHARED
 if(APPLE)
     target_link_libraries(hazel PUBLIC glfw "-framework OpenGL" glad)
 else()
-    target_link_libraries(hazel PUBLIC glfw GL glad)
+    target_link_libraries(hazel PUBLIC glfw glad)
 endif()
 
 target_include_directories(hazel PUBLIC
