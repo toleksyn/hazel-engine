@@ -1,6 +1,6 @@
 #include "application.h"
 #include "log.h"
-#include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 namespace Hazel {
 
@@ -10,6 +10,9 @@ namespace Hazel {
     {
         m_Window = std::unique_ptr<Window>(Window::create());
         m_Window->setEventCallback(BIND_EVENT_FN(onEvent));
+
+        unsigned int id;
+        glGenVertexArrays(1, &id);
     }
 
     Application::~Application()
@@ -23,10 +26,12 @@ namespace Hazel {
         {
             glClearColor(1, 0, 1, 1);
             glClear(GL_COLOR_BUFFER_BIT);
+
             for (Layer* layer : m_LayerStack)
             {
                 layer->onUpdate();
             }
+
             m_Window->onUpdate();
         }
     }

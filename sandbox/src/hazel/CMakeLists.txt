@@ -9,6 +9,7 @@ set(HEADER_FILES
 )
 
 add_subdirectory(src/vendor/glfw)
+add_subdirectory(src/vendor/glad)
 
 add_library(hazel SHARED
     src/Hazel/core.h
@@ -29,14 +30,15 @@ add_library(hazel SHARED
 )
 
 if(APPLE)
-    target_link_libraries(hazel PUBLIC glfw "-framework OpenGL")
+    target_link_libraries(hazel PUBLIC glfw "-framework OpenGL" glad)
 else()
-    target_link_libraries(hazel PUBLIC glfw GL)
+    target_link_libraries(hazel PUBLIC glfw GL glad)
 endif()
 
 target_include_directories(hazel PUBLIC
     "${PROJECT_SOURCE_DIR}/src/vendor/spdlog/include"
     "${PROJECT_SOURCE_DIR}/src/vendor/glfw/include"
+    "${PROJECT_SOURCE_DIR}/src/vendor/glad/include"
 )
 
 target_precompile_headers(hazel PRIVATE ${HEADER_FILES})

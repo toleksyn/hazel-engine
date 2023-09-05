@@ -1,7 +1,9 @@
 #pragma once
 
-#include "../../Hazel/window.h"
+#define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
+
+#include "../../Hazel/window.h"
 
 namespace Hazel {
 
