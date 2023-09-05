@@ -37,3 +37,4 @@ sandbox/bin*/*
 sandbox/*.user
 .idea/
 cmake-build-*/
+.DS_Store
