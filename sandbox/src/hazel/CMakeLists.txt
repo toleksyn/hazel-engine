@@ -24,6 +24,8 @@ add_library(hazel SHARED
     src/hzpch.h
     src/Hazel/window.h
     src/platform/unix/unixwindow.h src/platform/unix/unixwindow.cpp
+    src/Hazel/layer.h src/Hazel/layer.cpp
+    src/Hazel/layerstack.h src/Hazel/layerstack.cpp
 )
 
 if(APPLE)

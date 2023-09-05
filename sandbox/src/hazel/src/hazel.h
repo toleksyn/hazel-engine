@@ -4,4 +4,5 @@
 #include "Hazel/entryPoint.h"
 #include "Hazel/log.h"
 #include "Hazel/events/event.h"
+#include "Hazel/layer.h"
 
