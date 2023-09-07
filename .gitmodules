@@ -4,3 +4,6 @@
 [submodule "sandbox/src/hazel/src/vendor/glfw"]
 	path = sandbox/src/hazel/src/vendor/glfw
 	url = https://github.com/glfw/glfw
+[submodule "sandbox/src/hazel/src/vendor/imgui"]
+	path = sandbox/src/hazel/src/vendor/imgui
+	url = https://github.com/toleksyn/imgui
