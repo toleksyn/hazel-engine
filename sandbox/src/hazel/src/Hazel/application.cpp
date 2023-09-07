@@ -11,8 +11,8 @@ namespace Hazel {
         m_Window = std::unique_ptr<Window>(Window::create());
         m_Window->setEventCallback(BIND_EVENT_FN(onEvent));
 
-        unsigned int id;
-        glGenVertexArrays(1, &id);
+//        unsigned int id;
+//        glGenVertexArrays(1, &id);
     }
 
     Application::~Application()
