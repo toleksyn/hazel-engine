@@ -1,5 +1,5 @@
-#include "application.h"
-#include "log.h"
+#include "Hazel/application.h"
+#include "Hazel/log.h"
 #include "glad/glad.h"
 
 namespace Hazel {
@@ -8,8 +8,8 @@ namespace Hazel {
 
     Application::Application()
     {
-        m_Window = std::unique_ptr<Window>(Window::create());
-        m_Window->setEventCallback(BIND_EVENT_FN(onEvent));
+        m_Window = std::unique_ptr<Window>(Window::Create());
+        m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 //        unsigned int id;
 //        glGenVertexArrays(1, &id);
@@ -20,7 +20,7 @@ namespace Hazel {
 
     }
 
-    void Application::run()
+    void Application::Run()
     {
         while (m_Running)
         {
@@ -29,21 +29,21 @@ namespace Hazel {
 
             for (Layer* layer : m_LayerStack)
             {
-                layer->onUpdate();
+                layer->OnUpdate();
             }
-
-            m_Window->onUpdate();
+            
+            m_Window->OnUpdate();
         }
     }
 
-    void Application::onEvent(Event &e)
+    void Application::OnEvent(Event &e)
     {
         EventDispatcher dispatcher(e);
-        dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
+        dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
         for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
         {
-            (*--it)->onEvent(e);
+            (*--it)->OnEvent(e);
 
             if (e.handled)
             {
@@ -52,17 +52,17 @@ namespace Hazel {
         }
     }
 
-    void Application::pushLayer(Layer *layer)
+    void Application::PushLayer(Layer *layer)
     {
-        m_LayerStack.pushLayer(layer);
+        m_LayerStack.PushLayer(layer);
     }
 
-    void Application::pushOverlay(Layer *overlay)
+    void Application::PushOverlay(Layer *overlay)
     {
-        m_LayerStack.pushOverlay(overlay);
+        m_LayerStack.PushOverlay(overlay);
     }
 
-    bool Application::onWindowClose(WindowCloseEvent &e)
+    bool Application::OnWindowClose(WindowCloseEvent &e)
     {
         m_Running = false;
         return true;

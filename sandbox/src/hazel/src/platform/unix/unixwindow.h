@@ -3,7 +3,7 @@
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
 
-#include "../../Hazel/window.h"
+#include "Hazel/window.h"
 
 namespace Hazel {
 
@@ -13,18 +13,18 @@ namespace Hazel {
         UnixWindow(const WindowProps& props);
         virtual ~UnixWindow();
 
-        void onUpdate() override;
+        void OnUpdate() override;
 
-        inline unsigned int getWidth() const override { return m_Data.width; }
-        inline unsigned int getHeight() const override { return m_Data.height; }
+        inline unsigned int GetWidth() const override { return m_Data.width; }
+        inline unsigned int GetHeight() const override { return m_Data.height; }
 
-        inline void setEventCallback(const EventCallbackFn& callback) override { m_Data.eventCallback = callback; }
-        void setVSync(bool enabled) override;
-        bool isVSync() override;
+        inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.eventCallback = callback; }
+        void SetVSync(bool enabled) override;
+        bool IsVSync() override;
 
     private:
-        virtual void init(const WindowProps& props);
-        virtual void shutdown();
+        virtual void Init(const WindowProps& props);
+        virtual void Shutdown();
 
     private:
         GLFWwindow* m_Window;

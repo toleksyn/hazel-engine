@@ -104,6 +104,9 @@
 #endif
 
 #include "imgui.h"
+#include "hzpch.h"
+#include "glad/glad.h"
+
 #ifndef IMGUI_DISABLE
 #include "imgui_impl_opengl_renderer.h"
 #include <stdio.h>

@@ -1,8 +1,8 @@
 #include "unixwindow.h"
-#include "../../Hazel/log.h"
-#include "../../Hazel/events/applicationEvent.h"
-#include "../../Hazel/events/mouseEvent.h"
-#include "../../Hazel/events/keyEvent.h"
+#include "Hazel/log.h"
+#include "Hazel/events/applicationEvent.h"
+#include "Hazel/events/mouseEvent.h"
+#include "Hazel/events/keyEvent.h"
 #include "glad/glad.h"
 
 namespace Hazel {
@@ -13,28 +13,28 @@ namespace Hazel {
         HZ_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
     }
 
-    Window* Window::create(const WindowProps& props)
+    Window* Window::Create(const WindowProps& props)
     {
         return new UnixWindow(props);
     }
 
     UnixWindow::UnixWindow(const WindowProps &props)
     {
-        init(props);
+        Init(props);
     }
 
     UnixWindow::~UnixWindow()
     {
-        shutdown();
+        Shutdown();
     }
 
-    void UnixWindow::onUpdate()
+    void UnixWindow::OnUpdate()
     {
         glfwPollEvents();
         glfwSwapBuffers(m_Window);
     }
 
-    void UnixWindow::setVSync(bool enabled)
+    void UnixWindow::SetVSync(bool enabled)
     {
         if (enabled)
         {
@@ -47,12 +47,12 @@ namespace Hazel {
         m_Data.vSync = enabled;
     }
 
-    bool UnixWindow::isVSync()
+    bool UnixWindow::IsVSync()
     {
         return m_Data.vSync;
     }
 
-    void UnixWindow::init(const WindowProps &props)
+    void UnixWindow::Init(const WindowProps &props)
     {
         m_Data.title = props.title;
         m_Data.width = props.width;
@@ -73,7 +73,7 @@ namespace Hazel {
         int status = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
         HZ_CORE_ASSERT(status, "Failed to initialize GLAD");
         glfwSetWindowUserPointer(m_Window, &m_Data);
-        setVSync(true);
+        SetVSync(true);
 
         // set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [] (GLFWwindow *window, int width, int height)
@@ -154,7 +154,7 @@ namespace Hazel {
         });
     }
 
-    void UnixWindow::shutdown()
+    void UnixWindow::Shutdown()
     {
         glfwDestroyWindow(m_Window);
     }

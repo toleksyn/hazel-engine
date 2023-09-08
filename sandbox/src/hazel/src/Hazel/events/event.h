@@ -1,6 +1,7 @@
 #pragma once
-#include "../core.h"
-#include "../../hzpch.h"
+
+#include "Hazel/core.h"
+#include "hzpch.h"
 
 namespace Hazel {
 
@@ -21,22 +22,22 @@ namespace Hazel {
         EventCategoryMouseButton = BIT(5)
     };
 
-#define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return EventType::type; }\
-                                virtual EventType getEventType() const override { return getStaticType(); }\
-                                virtual const char* getName() const override { return #type; }
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
+                                virtual EventType GetEventType() const override { return GetStaticType(); }\
+                                virtual const char* GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return category; }
+#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
     class HAZEL_API Event {
     public:
         bool handled = false;
-        virtual EventType getEventType() const = 0;
-        virtual const char* getName() const = 0;
-        virtual int getCategoryFlags() const = 0;
-        virtual std::string toString() const { return getName(); }
+        virtual EventType GetEventType() const = 0;
+        virtual const char* GetName() const = 0;
+        virtual int GetCategoryFlags() const = 0;
+        virtual std::string ToString() const { return GetName(); }
 
-        inline bool isInCategory(EventCategory category) {
-            return getCategoryFlags() & category;
+        inline bool IsInCategory(EventCategory category) {
+            return GetCategoryFlags() & category;
         }
     };
 
@@ -51,9 +52,9 @@ namespace Hazel {
         }
 
         template<typename T>
-        bool dispatch(EventFn<T> func)
+        bool Dispatch(EventFn<T> func)
         {
-            if (m_Event.getEventType() == T::getStaticType())
+            if (m_Event.GetEventType() == T::GetStaticType())
             {
                 m_Event.handled = func(*(T*)&m_Event);
                 return true;
@@ -66,7 +67,7 @@ namespace Hazel {
 
     inline std::ostream& operator<<(std::ostream& os, const Event& e)
     {
-        return os << e.toString();
+        return os << e.ToString();
     }
 
 }

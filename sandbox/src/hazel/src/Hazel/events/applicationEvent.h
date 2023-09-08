@@ -13,7 +13,7 @@ namespace Hazel {
         inline unsigned int getWidth() const { return m_Width; }
         inline unsigned int getHeight() const { return m_Height; }
 
-        std::string toString() const override
+        std::string ToString() const override
         {
             std::stringstream ss;
             ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;

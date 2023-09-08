@@ -1,5 +1,7 @@
-#include "../../hzpch.h"
+#include "hzpch.h"
 #include "imgui_layer.h"
+
+#include "platform/opengl/imgui_impl_opengl_renderer.h"
 
 namespace Hazel {
 
@@ -14,22 +16,22 @@ namespace Hazel {
 
     }
 
-    void ImGuiLayer::onAttach()
+    void ImGuiLayer::OnAttach()
+    {
+        ImGui::CreateContext();
+    }
+
+    void ImGuiLayer::OnDetach()
     {
 
     }
 
-    void ImGuiLayer::onDetach()
+    void ImGuiLayer::OnUpdate()
     {
 
     }
 
-    void ImGuiLayer::onUpdate()
-    {
-
-    }
-
-    void ImGuiLayer::onEvent(Event &e)
+    void ImGuiLayer::OnEvent(Event &e)
     {
 
     }

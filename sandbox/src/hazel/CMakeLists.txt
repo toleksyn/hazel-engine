@@ -41,6 +41,7 @@ else()
 endif()
 
 target_include_directories(hazel PUBLIC
+    "${PROJECT_SOURCE_DIR}/src"
     "${PROJECT_SOURCE_DIR}/src/vendor/spdlog/include"
     "${PROJECT_SOURCE_DIR}/src/vendor/glfw/include"
     "${PROJECT_SOURCE_DIR}/src/vendor/glad/include"

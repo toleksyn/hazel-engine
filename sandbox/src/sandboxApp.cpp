@@ -8,12 +8,12 @@ public:
     {
     }
 
-    void onUpdate() override
+    void OnUpdate() override
     {
         HZ_INFO("ExampleLayer::Update");
     }
-
-    void onEvent(Hazel::Event& e) override
+    
+    void OnEvent(Hazel::Event& e) override
     {
         HZ_TRACE("{0}", e);
     }
@@ -24,7 +24,7 @@ class Sandbox : public Hazel::Application
 public:
     Sandbox()
     {
-        pushLayer(new ExampleLayer());
+        PushLayer(new ExampleLayer());
     }
 
     ~Sandbox()
@@ -33,7 +33,7 @@ public:
     }
 };
 
-Hazel::Application* Hazel::createApplication()
+Hazel::Application* Hazel::CreateApplication()
 {
     return new Sandbox();
 }

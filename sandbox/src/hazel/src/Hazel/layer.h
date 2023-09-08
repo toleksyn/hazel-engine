@@ -1,6 +1,6 @@
-
 #pragma once
-#include "events/event.h"
+
+#include "Hazel/events/event.h"
 
 namespace Hazel {
     class HAZEL_API Layer
@@ -8,13 +8,13 @@ namespace Hazel {
     public:
         Layer(const std::string& name = "Layer");
         virtual ~Layer();
+        
+        virtual void OnAttach() {};
+        virtual void OnDetach() {};
+        virtual void OnUpdate() {};
+        virtual void OnEvent(Event& e) {};
 
-        virtual void onAttach() {};
-        virtual void onDetach() {};
-        virtual void onUpdate() {};
-        virtual void onEvent(Event& e) {};
-
-        inline const std::string& getName() const { return m_DebugName; }
+        inline const std::string& GetName() const { return m_DebugName; }
     protected:
         std::string m_DebugName;
     };

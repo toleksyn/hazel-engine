@@ -1,15 +1,15 @@
 #pragma once
 
-#include "application.h"
-#include "hazel.h"
+#include "Hazel/application.h"
+#include "Hazel/hazel.h"
 
-extern Hazel::Application* Hazel::createApplication();
+extern Hazel::Application* Hazel::CreateApplication();
 
 int main (int argc, char** argv)
 {
-    Hazel::Log::init();
-
-    auto app = Hazel::createApplication();
-    app->run();
+    Hazel::Log::Init();
+    
+    auto app = Hazel::CreateApplication();
+    app->Run();
     delete app;
 }
