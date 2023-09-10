@@ -1,9 +1,9 @@
-#include "unixwindow.h"
+#include "Hazel/application.h"
 #include "Hazel/log.h"
-#include "Hazel/events/applicationEvent.h"
 #include "Hazel/events/mouseEvent.h"
 #include "Hazel/events/keyEvent.h"
 #include "glad/glad.h"
+#include "unixwindow.h"
 
 namespace Hazel {
 
@@ -68,7 +68,15 @@ namespace Hazel {
             s_GLFWInitialized = true;
         }
 
-        m_Window = glfwCreateWindow((int) props.width, (int) props.height, m_Data.title.c_str(), nullptr, nullptr);
+#ifdef __APPLE__
+        // required for the GL layer to work on Apple platform
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+
+        m_Window = glfwCreateWindow((uint) props.width, (uint) props.height, m_Data.title.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_Window);
         int status = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
         HZ_CORE_ASSERT(status, "Failed to initialize GLAD");

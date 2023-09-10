@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Hazel/application.h"
 #include "Hazel/hazel.h"
 
 extern Hazel::Application* Hazel::CreateApplication();

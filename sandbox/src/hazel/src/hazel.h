@@ -5,4 +5,5 @@
 #include "Hazel/log.h"
 #include "Hazel/events/event.h"
 #include "Hazel/layer.h"
+#include "Hazel/imgui/imgui_layer.h"
 

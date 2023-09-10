@@ -1,8 +1,9 @@
 #pragma once
-#include "../layer.h"
+
+#include "Hazel/layer.h"
 
 namespace Hazel {
-    class ImGuiLayer : public Layer
+    class HAZEL_API ImGuiLayer : public Layer
     {
     public:
         ImGuiLayer();
@@ -12,6 +13,8 @@ namespace Hazel {
         void OnDetach();
         void OnUpdate();
         void OnEvent(Event& e);
+
+        float m_Time = 0.0f;
     };
 }
 
