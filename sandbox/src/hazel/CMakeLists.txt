@@ -37,7 +37,7 @@ add_library(hazel SHARED
 if(APPLE)
     target_link_libraries(hazel PUBLIC glfw "-framework OpenGL" glad imgui)
 else()
-    target_link_libraries(hazel PUBLIC glfw glad imgui)
+    target_link_libraries(hazel PUBLIC glfw glad imgui GL)
 endif()
 
 target_include_directories(hazel PUBLIC
