@@ -1,9 +1,9 @@
 #pragma once
 
 #include <Hazel/layer.h>
-#include <Hazel/events/keyEvent.h>
-#include <Hazel/events/mouseEvent.h>
-#include <Hazel/events/applicationEvent.h>
+#include <Hazel/events/key_event.h>
+#include <Hazel/events/mouse_event.h>
+#include <Hazel/events/application_event.h>
 
 namespace Hazel {
 
@@ -16,7 +16,7 @@ namespace Hazel {
         void OnAttach();
         void OnDetach();
         void OnUpdate();
-        void OnEvent(Event& e);
+        void OnEvent(Event &e);
 
     private:
         bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);

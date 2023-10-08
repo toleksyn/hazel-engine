@@ -1,8 +1,8 @@
 #include "hzpch.h"
 #include "Hazel/log.h"
 #include "Hazel/application.h"
-#include "Hazel/events/mouseEvent.h"
-#include "Hazel/events/keyEvent.h"
+#include "Hazel/events/mouse_event.h"
+#include "Hazel/events/key_event.h"
 #include "imgui_layer.h"
 #include "platform/opengl/imgui_impl_opengl_renderer.h"
 
@@ -167,7 +167,7 @@ namespace Hazel {
         ImGuiIO &io = ImGui::GetIO();
         io.DisplaySize = ImVec2(e.GetWidth(), e.GetHeight());
 #ifdef __APPLE__
-        io.DisplayFramebufferScale = ImVec2(2.0f, 2.0f);
+        io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
 #else
         io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
 #endif

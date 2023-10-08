@@ -2,6 +2,10 @@
 
 #define HAZEL_API __attribute__((visibility("default")))
 
+#ifdef HZ_DEBUG
+    #define HZ_ENABLE_ASSERTS
+#endif
+
 #define BIT(x) (1 << x)
 
 #ifdef HZ_ENABLE_ASSERTS

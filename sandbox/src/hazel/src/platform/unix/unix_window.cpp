@@ -1,9 +1,9 @@
 #include "Hazel/application.h"
 #include "Hazel/log.h"
-#include "Hazel/events/mouseEvent.h"
-#include "Hazel/events/keyEvent.h"
+#include "Hazel/events/mouse_event.h"
+#include "Hazel/events/key_event.h"
 #include "glad/glad.h"
-#include "unixwindow.h"
+#include "unix_window.h"
 
 namespace Hazel {
 

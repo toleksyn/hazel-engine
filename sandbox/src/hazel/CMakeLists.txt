@@ -16,21 +16,23 @@ add_library(hazel SHARED
     src/Hazel/core.h
     src/Hazel/application.h src/Hazel/application.cpp
     src/hazel.h
-    src/Hazel/entryPoint.h
+    src/Hazel/entry_point.h
     src/Hazel/log.h src/Hazel/log.cpp
     src/Hazel/hazel.h
     src/Hazel/events/event.h
-    src/Hazel/events/applicationEvent.h
-    src/Hazel/events/keyEvent.h
-    src/Hazel/events/mouseEvent.h
+    src/Hazel/events/application_event.h
+    src/Hazel/events/key_event.h
+    src/Hazel/events/mouse_event.h
     src/hzpch.h
     src/Hazel/window.h
-    src/platform/window/unixwindow.h src/platform/window/unixwindow.cpp
+    src/platform/unix/unix_window.h src/platform/unix/unix_window.cpp
     src/platform/opengl/imgui_impl_opengl_renderer.h src/platform/opengl/imgui_impl_opengl_renderer.cpp
     src/Hazel/layer.h src/Hazel/layer.cpp
-    src/Hazel/layerstack.h src/Hazel/layerstack.cpp
+    src/Hazel/layer_stack.h src/Hazel/layer_stack.cpp
     src/Hazel/imgui/imgui_layer.h
     src/Hazel/imgui/imgui_layer.h src/Hazel/imgui/imgui_layer.cpp
+    src/Hazel/input.h
+    src/platform/unix/unix_input.h src/platform/unix/unix_input.cpp
 
 )
 
