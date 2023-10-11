@@ -7,3 +7,6 @@
 [submodule "sandbox/src/hazel/src/vendor/imgui"]
 	path = sandbox/src/hazel/src/vendor/imgui
 	url = https://github.com/toleksyn/imgui
+[submodule "sandbox/src/hazel/src/vendor/glm"]
+	path = sandbox/src/hazel/src/vendor/glm
+	url = https://github.com/toleksyn/glm

@@ -11,19 +11,26 @@ set(HEADER_FILES
 add_subdirectory(src/vendor/glfw)
 add_subdirectory(src/vendor/glad)
 add_subdirectory(src/vendor/imgui)
+add_subdirectory(src/vendor/glm)
 
 add_library(hazel SHARED
     src/Hazel/core.h
-    src/Hazel/application.h src/Hazel/application.cpp
+    src/hzpch.h
     src/hazel.h
     src/Hazel/entry_point.h
     src/Hazel/log.h src/Hazel/log.cpp
-    src/Hazel/hazel.h
+
     src/Hazel/events/event.h
     src/Hazel/events/application_event.h
     src/Hazel/events/key_event.h
     src/Hazel/events/mouse_event.h
-    src/hzpch.h
+
+    src/Hazel/input.h
+    src/Hazel/key_codes.h
+    src/Hazel/mouse_button_codes.h
+    src/platform/unix/unix_input.h src/platform/unix/unix_input.cpp
+
+    src/Hazel/application.h src/Hazel/application.cpp
     src/Hazel/window.h
     src/platform/unix/unix_window.h src/platform/unix/unix_window.cpp
     src/platform/opengl/imgui_impl_opengl_renderer.h src/platform/opengl/imgui_impl_opengl_renderer.cpp
@@ -31,8 +38,6 @@ add_library(hazel SHARED
     src/Hazel/layer_stack.h src/Hazel/layer_stack.cpp
     src/Hazel/imgui/imgui_layer.h
     src/Hazel/imgui/imgui_layer.h src/Hazel/imgui/imgui_layer.cpp
-    src/Hazel/input.h
-    src/platform/unix/unix_input.h src/platform/unix/unix_input.cpp
 
 )
 
@@ -48,6 +53,7 @@ target_include_directories(hazel PUBLIC
     "${PROJECT_SOURCE_DIR}/src/vendor/glfw/include"
     "${PROJECT_SOURCE_DIR}/src/vendor/glad/include"
     "${PROJECT_SOURCE_DIR}/src/vendor/imgui"
+    "${PROJECT_SOURCE_DIR}/src/vendor/glm"
 )
 
 target_precompile_headers(hazel PRIVATE ${HEADER_FILES})
